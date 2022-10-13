@@ -45,10 +45,10 @@ server.on("listening", () => {
   console.log("Listening on " + bind);
 });
 
-AppDataSource.initialize().then(async () => {
-
-  console.log("Starting express server......")
-  server.listen(port);
-}).then(() => {
-}).catch(error => console.log(error))
+AppDataSource.initialize()
+  .then(async () => {
+    console.log("initializing database.........")
+  }).catch(error => console.log(error))
+console.log("starting express server............")
+server.listen(port);
 

@@ -5,6 +5,7 @@ import * as errorhandler from 'errorhandler'
 import * as cors from 'cors'
 import { AppDataSource } from './data-source'
 import userRouter from './routes/User'
+import statusRouter from './routes/Status'
 
 //establish data connection
 AppDataSource
@@ -22,6 +23,7 @@ app.use(cors())
 app.use(helmet({ crossOriginResourcePolicy: { policy: "same-site" } }))
 app.use(bodyParser.json())
 app.use("/api/user", userRouter)
+app.use("/api/status", statusRouter)
 
 if (process.env.NODE_ENV === "development") {
   app.use(errorhandler())

@@ -23,7 +23,7 @@ const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   synchronize: true,
   logging: false,
-  entities: [User],
+  entities: [User, Status],
   migrations: [],
   subscribers: [],
 })

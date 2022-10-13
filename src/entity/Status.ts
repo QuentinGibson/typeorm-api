@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm'
 import { User } from './User'
 
 @Entity()
@@ -9,6 +9,6 @@ export class Status {
   @Column()
   name: string
 
-  // @ManyToOne(() => User, user => user.status, { onDelete: "SET NULL" })
-  // users: User[]
+  @OneToMany(() => User, (user) => user.status)
+  users: User[]
 }

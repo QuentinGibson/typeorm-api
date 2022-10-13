@@ -19,6 +19,6 @@ export class User {
   @Column({ default: () => "CURRENT_TIMESTAMP" })
   creation: Date
 
-  // @ManyToOne(() => Status, status => status.users, { onDelete: "NO ACTION" })
-  // status: Status
+  @ManyToOne(() => Status, (status) => status.users)
+  status: Status
 }
